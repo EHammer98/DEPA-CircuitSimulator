@@ -1,0 +1,42 @@
+classDiagram
+
+class LogicComponent {
+  -int tp
+  -int inputCount
+  -int outputCount
+  +execute()
+}
+
+class Input {
+  -int state
+  +output()
+}
+
+class Probe {
+  -int inputState
+  +display()
+}
+
+class AND
+class OR
+class NOT
+class NAND
+class NOR
+class XOR
+
+Input --|> LogicComponent: Inherits
+Probe --|> LogicComponent: Inherits
+
+AND --|> LogicComponent: Inherits
+OR --|> LogicComponent: Inherits
+NOT --|> LogicComponent: Inherits
+NAND --|> LogicComponent: Inherits
+NOR --|> LogicComponent: Inherits
+XOR --|> LogicComponent: Inherits
+
+class Circuit {
+  -List logicComponents
+  +simulate()
+}
+
+Circuit "1" *-- "*" LogicComponent : contains
