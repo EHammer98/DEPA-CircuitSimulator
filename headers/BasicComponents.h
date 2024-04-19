@@ -9,6 +9,9 @@ protected:
     bool output;
 public:
     virtual void computeOutput() = 0;
+    bool getOutput() const override {
+        return output; // Implementation for getting the output
+    }
 };
 
 // AND port
@@ -29,9 +32,15 @@ public:
 
 // NOT port
 class NOT : public BasicComponent {
+protected:
+    bool input; // NOT gate only has one input
+
 public:
     void computeOutput() override {
-        output = !input1;
+        output = !input; // Use the single input for NOT logic
+    }
+    bool getOutput() const override {
+        return output; // Override to get the output from the single input
     }
 };
 
