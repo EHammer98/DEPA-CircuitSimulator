@@ -1,3 +1,5 @@
+#pragma once
+
 #include "LogicComponent.h"
 
 class Probe {
