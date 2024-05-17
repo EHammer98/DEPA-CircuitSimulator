@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileParser.h" />
     <ClInclude Include="headers\BasicComponent.h" />
     <ClInclude Include="headers\Circuit.h" />
     <ClInclude Include="headers\ComponentFactory.h" />
