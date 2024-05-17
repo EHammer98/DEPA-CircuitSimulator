@@ -1,0 +1,79 @@
+classDiagram
+    class LogicComponent {
+        <<interface>>
+        +computeOutput()
+    }
+
+    class BasicComponent {
+        +input1
+        +input2
+        +output
+        +computeOutput() : void
+    }
+
+    class CompositeComponent {
+        +children
+        +computeOutput() : void
+    }
+
+    class Circuit {
+        +components: LogicComponent[]
+        +compute() : void
+        +addComponent(component: LogicComponent) : void
+    }
+
+    class ComponentFactory {
+        +createComponent(type) : LogicComponent
+    }
+
+    class Probe {
+        +observe(component)
+        +update(output)
+    }
+
+    class FileReader {
+        +readFile(filePath) : string
+    }
+
+    class FileParser {
+        +parse(content) : LogicComponent[]
+    }
+
+    class FileHandler {
+        +readAndParse(filePath) : Circuit
+    }
+
+    LogicComponent <|-- BasicComponent
+    LogicComponent <|-- CompositeComponent
+    BasicComponent <|-- AND
+    BasicComponent <|-- OR
+    BasicComponent <|-- NOT
+    BasicComponent <|-- NAND
+    BasicComponent <|-- NOR
+    BasicComponent <|-- XOR
+    CompositeComponent "1" *-- "many" LogicComponent : contains
+    Circuit o-- LogicComponent : uses
+    Probe ..> LogicComponent : observes
+    ComponentFactory ..> LogicComponent : creates
+    FileHandler --> FileReader : uses
+    FileHandler --> FileParser : uses
+    FileHandler --> Circuit : creates
+
+    class AND {
+        +computeOutput() : void
+    }
+    class OR {
+        +computeOutput() : void
+    }
+    class NOT {
+        +computeOutput() : void
+    }
+    class NAND {
+        +computeOutput() : void
+    }
+    class NOR {
+        +computeOutput() : void
+    }
+    class XOR {
+        +computeOutput() : void
+    }
