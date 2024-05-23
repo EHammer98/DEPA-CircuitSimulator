@@ -131,10 +131,12 @@
     <ClCompile Include="Circuit.cpp" />
     <ClCompile Include="ComponentFactory.cpp" />
     <ClCompile Include="CompositeComponent.cpp" />
+    <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Probe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileParser.h" />
     <ClInclude Include="headers\BasicComponents.h" />
     <ClInclude Include="headers\Circuit.h" />
     <ClInclude Include="headers\ComponentFactory.h" />
