@@ -16,8 +16,10 @@ int main(int argc, char* argv[]) {
     //    return 1;
     //}
 
+    // C:\\Users\\ElwinHammer\\DEPA-CircuitSimulator\\circuits\\circuit1.txt
+
     //TODO: Change path
-    std::string input_filename = "C:\\Users\\ElwinHammer\\DEPA-CircuitSimulator\\circuitscircuits\\circuit1.txt"; //argv[1];
+    std::string input_filename = "C:\\Users\\ElwinHammer\\DEPA-CircuitSimulator\\circuits\\circuit1.txt"; //argv[1];
     std::ifstream input_file(input_filename);
     if (!input_file.is_open()) {
         std::cerr << "Error: Could not open file " << input_filename << std::endl;
