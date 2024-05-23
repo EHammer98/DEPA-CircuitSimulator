@@ -11,12 +11,13 @@
 #include <algorithm>
 
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
-        return 1;
-    }
+    //if (argc < 2) {
+    //    std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+    //    return 1;
+    //}
 
-    std::string input_filename = argv[1];
+    //TODO: Change path
+    std::string input_filename = "C:\\Users\\ElwinHammer\\DEPA-CircuitSimulator\\circuitscircuits\\circuit1.txt"; //argv[1];
     std::ifstream input_file(input_filename);
     if (!input_file.is_open()) {
         std::cerr << "Error: Could not open file " << input_filename << std::endl;
