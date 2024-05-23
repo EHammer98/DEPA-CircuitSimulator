@@ -1,3 +1,5 @@
+#pragma once
+
 // CompositeComponent.h
 #include <vector>
 #include "LogicComponent.h"
@@ -12,21 +14,11 @@ public:
     CompositeComponent() : output(false) {}
 
     // Add a child component
-    void addChild(LogicComponent* child) {
-        children.push_back(child);
-    }
+    void addChild(LogicComponent* child);
 
     // Compute output by invoking computeOutput on all child components
-    void computeOutput() override {
-        // Example logic: Let's say the output is determined by the last child component
-        if (!children.empty()) {
-            children.back()->computeOutput();
-            output = children.back()->getOutput();
-        }
-    }
+    void computeOutput() override;
 
     // Get the output of the composite component
-    bool getOutput() const override {
-        return output;
-    }
+    bool getOutput() const override;
 };

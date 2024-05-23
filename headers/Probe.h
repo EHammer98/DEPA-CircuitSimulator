@@ -12,23 +12,13 @@ private:
 public:
     Probe() : observedComponent(nullptr), output(false) {}
 
-    void observe(LogicComponent* component) {
-        observedComponent = component;
-    }
+    void observe(LogicComponent* component);
 
-    void update() {
-        if (observedComponent) {
-            output = observedComponent->getOutput();
-        }
-    }
+    void update();
 
-    bool getOutput() const {
-        return output;
-    }
+    bool getOutput() const;
 
-    void computeOutput() {
-        update();
-    }
+    void computeOutput();
 };
 
 #endif // PROBE_H

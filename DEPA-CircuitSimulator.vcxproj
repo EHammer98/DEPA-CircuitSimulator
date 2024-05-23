@@ -127,10 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicComponents.cpp" />
+    <ClCompile Include="Circuit.cpp" />
+    <ClCompile Include="ComponentFactory.cpp" />
+    <ClCompile Include="CompositeComponent.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Probe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\BasicComponent.h" />
+    <ClInclude Include="headers\BasicComponents.h" />
     <ClInclude Include="headers\Circuit.h" />
     <ClInclude Include="headers\ComponentFactory.h" />
     <ClInclude Include="headers\CompositeComponent.h" />

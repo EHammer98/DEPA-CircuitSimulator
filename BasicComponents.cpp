@@ -7,9 +7,9 @@
  *
  * @throws None
  */
-void AND::computeOutput() {
-    output = input1 && input2;
-}
+//void AND::computeOutput() {
+//    output = input1 && input2;
+//}
 
 
 //TODO

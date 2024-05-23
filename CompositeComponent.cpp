@@ -21,3 +21,8 @@ void CompositeComponent::computeOutput() {
         child->computeOutput();
     }
 }
+
+    bool CompositeComponent::getOutput() const {
+        return false;
+    }
+

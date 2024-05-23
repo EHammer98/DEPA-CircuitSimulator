@@ -1,6 +1,7 @@
 #include "headers/Circuit.h"
 #include "headers/ComponentFactory.h"
 #include "headers/CompositeComponent.h"
+#include "headers/LogicComponent.h"
 #include "headers/Probe.h"
 #include <iostream>
 #include <fstream>
