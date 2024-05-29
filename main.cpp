@@ -18,12 +18,12 @@ int main(int argc, char* argv[]) {
     //}
 
     //TODO: Change path
-    std::string input_filename = "circuits/circuit1.txt"; //argv[1];
+    std::string input_filename = "C:\\Users\\ElwinHammer\\source\\repos\\EHammer98\\DEPA-CircuitSimulator\\circuits\\circuit1.txt"; //argv[1];
 
 
     FileParser fileParser;
 
-    fileParser.parse("circuits/circuit1.txt");
+    fileParser.parse(input_filename);
 
 
     std::ifstream input_file(input_filename);
