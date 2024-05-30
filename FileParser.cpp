@@ -7,45 +7,81 @@
 #include "headers/FileParser.h"
 
 
-void FileParser::parse(std::string fileName)
+std::vector<nodeData> FileParser::parse(std::string fileName)
 {
-    std::ifstream file(fileName);
-    std::unordered_map<std::string, NodeType> nodeDescriptions;
-    std::vector<Edge> edges;
+	std::ifstream file(fileName);
+	std::vector<nodeData> nodes;
 
-    if (!file.is_open())
-        std::cout << "Failed to open file" << std::endl;
+	if (!file.is_open())
+		std::cout << "Failed to open file" << std::endl;
 
-    std::string line;
-    bool parsingNodes = true;
-    bool parsingEdges = false;
-    while (std::getline(file, line)) {
-        //  std::cout << "reading line" << std::endl;
-        if (line.empty() || line[0] == '#') continue; // skip empty lines and comments
+	std::string line;
+	bool parsingNodes = true; // parsing edges when false
 
-        std::string name;
-        std::string typeStr;
-        std::istringstream iss(line);
-        iss >> name >> typeStr;
+	while (std::getline(file, line)) {
+		//std::cout << "reading line: " << line << std::endl;
+		if (line.find("# Description of all the edges") != std::string::npos) {
+			parsingNodes = false;
+			//	std::cout << "\nPARSING EDGES FROM HERE ON\n\n";
+			continue;
+		}
+		else if (line.empty() || line[0] == '#') continue; // skip empty lines and comments
 
-        std::cout << typeStr << std::endl;
-        if (typeStr == "INPUT_HIGH") nodeDescriptions[name] = NodeType::INPUT_HIGH;
-        else if (typeStr == "INPUT_LOW") nodeDescriptions[name] = NodeType::INPUT_LOW;
-        else if (typeStr == "PROBE") nodeDescriptions[name] = NodeType::PROBE;
-        else if (typeStr == "OR") nodeDescriptions[name] = NodeType::OR;
-        else if (typeStr == "AND") nodeDescriptions[name] = NodeType::AND;
-        else if (typeStr == "NOT") nodeDescriptions[name] = NodeType::NOT;
 
-    }
+		if (parsingNodes)
+		{
+			size_t colonPos = line.find(':');
+			std::string name = line.substr(0, colonPos);
 
-    // Now you have the nodes and edges, you can process them as needed
-    for (const auto& edge : edges) {
-        // Connect nodes as needed
-    }
+			size_t typeStartPos = line.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ",colonPos +1);
 
-    // Don't forget to deallocate memory for created nodes
-    for (const auto& edge : edges) {
-        delete edge.from;
-        delete edge.to;
-    }
+			size_t semiColonPos = line.find(';', typeStartPos + 1);
+			std::string typeStr = line.substr(typeStartPos, semiColonPos - colonPos);
+
+			//std::cout << "name: " << name << "           Type :" << typeStr << std::endl;
+
+			nodes.push_back(nodeData{ name, typeStr, std::vector<std::string>() });
+		}
+		else { // parsing edges
+
+
+			size_t colonPos = line.find(':');
+			std::string name = line.substr(0, colonPos);
+
+			//	std::cout << name << "\t";
+
+			size_t lastPos = colonPos;
+
+
+			std::vector<std::string>* edgesVec = nullptr;
+
+			for (auto &node : nodes)
+			{
+				if (node.name == name) {
+					//	std::cout << "Set vector\n";
+					edgesVec = &node.edges;
+				}
+			}
+
+			if (edgesVec == nullptr) {
+				std::cout << "Error setting vector\n";
+				return std::vector<nodeData>();
+			}
+
+			while (true) {
+
+				size_t seperatorPos = line.find_first_of(",;", lastPos + 1);
+				if (seperatorPos == std::string::npos) break;
+
+				std::string edgeNode = line.substr(lastPos, seperatorPos - lastPos);
+
+				edgesVec->push_back(edgeNode);
+
+				//		std::cout << " " << edgeNode;
+				lastPos = seperatorPos+1;
+			}
+			//	std::cout << '\n';
+		}
+	}
+	return nodes;
 }

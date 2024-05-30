@@ -2,6 +2,12 @@
 
 #include <string>
 
+struct nodeData
+{
+    std::string name;
+    std::string type;
+    std::vector<std::string> edges;
+};
 
 
 class Node {
@@ -51,24 +57,6 @@ public:
     }
 };
 
-enum class NodeType { INPUT_HIGH, INPUT_LOW, PROBE, OR, AND, NOT };
-
-
-class NodeFactory {
-public:
-    static Node* createNode(NodeType type) {
-        switch (type) {
-        case NodeType::INPUT_HIGH: return new InputHighNode();
-        case NodeType::INPUT_LOW: return new InputLowNode();
-        case NodeType::PROBE: return new ProbeNode();
-        case NodeType::OR: return new OrNode();
-        case NodeType::AND: return new AndNode();
-        case NodeType::NOT: return new NotNode();
-        default: return nullptr;
-        }
-    }
-};
-
 class Edge {
 public:
     Node* from;
@@ -80,5 +68,5 @@ public:
 class FileParser
 {
 public:
-    void parse(std::string fileName);
+    std::vector<nodeData> parse(std::string fileName);
 };

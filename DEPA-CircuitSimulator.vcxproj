@@ -136,11 +136,11 @@
     <ClCompile Include="Probe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileParser.h" />
     <ClInclude Include="headers\BasicComponents.h" />
     <ClInclude Include="headers\Circuit.h" />
     <ClInclude Include="headers\ComponentFactory.h" />
     <ClInclude Include="headers\CompositeComponent.h" />
+    <ClInclude Include="headers\FileParser.h" />
     <ClInclude Include="headers\LogicComponent.h" />
     <ClInclude Include="headers\Probe.h" />
   </ItemGroup>
