@@ -131,7 +131,9 @@
     <ClCompile Include="Circuit.cpp" />
     <ClCompile Include="ComponentFactory.cpp" />
     <ClCompile Include="CompositeComponent.cpp" />
+    <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="FileParser.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Probe.cpp" />
   </ItemGroup>
@@ -140,9 +142,12 @@
     <ClInclude Include="headers\Circuit.h" />
     <ClInclude Include="headers\ComponentFactory.h" />
     <ClInclude Include="headers\CompositeComponent.h" />
+    <ClInclude Include="headers\FileHandler.h" />
     <ClInclude Include="headers\FileParser.h" />
+    <ClInclude Include="headers\FileReader.h" />
     <ClInclude Include="headers\LogicComponent.h" />
     <ClInclude Include="headers\Probe.h" />
+    <ClInclude Include="headers\NodeData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

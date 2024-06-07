@@ -26,3 +26,7 @@ void CompositeComponent::computeOutput() {
         return false;
     }
 
+   std::string CompositeComponent::getType() const
+    {
+        return "Composite";
+    }

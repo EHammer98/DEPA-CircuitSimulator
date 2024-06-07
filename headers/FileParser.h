@@ -1,14 +1,7 @@
 #pragma once
 
 #include <string>
-
-struct nodeData
-{
-    std::string name;
-    std::string type;
-    std::vector<std::string> edges;
-};
-
+#include "headers/NodeData.h"
 
 class Node {
 public:
@@ -68,5 +61,5 @@ public:
 class FileParser
 {
 public:
-    std::vector<nodeData> parse(std::string fileName);
+    static std::vector<NodeData> parse(std::stringstream &fileName);
 };

@@ -3,6 +3,7 @@
 // CompositeComponent.h
 #include <vector>
 #include "LogicComponent.h"
+#include <string>
 
 class CompositeComponent : public LogicComponent {
 private:
@@ -21,4 +22,6 @@ public:
 
     // Get the output of the composite component
     bool getOutput() const override;
+
+    std::string getType() const;
 };

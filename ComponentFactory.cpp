@@ -3,9 +3,10 @@
 #include "headers/ComponentFactory.h"
 #include "headers/BasicComponents.h"  // Include all component headers that you can create
 #include "headers/CompositeComponent.h"
-// ... include other necessary headers ...
+#include <iostream>
 
-LogicComponent* ComponentFactory::createComponent(const std::string& type) {
+LogicComponent* ComponentFactory::createComponent(const std::string& type)
+{
     if (type == "AND") {
         return new AND();
     } else if (type == "OR") {
@@ -19,6 +20,7 @@ LogicComponent* ComponentFactory::createComponent(const std::string& type) {
     } else if (type == "XOR") {
         return new XOR();
     } else if (type == "Composite") {
+      //  std::cout << "Type = Composite" << std::endl;
         return new CompositeComponent();
     }
     // Add additional types as necessary

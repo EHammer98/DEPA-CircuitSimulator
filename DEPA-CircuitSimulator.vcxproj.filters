@@ -36,6 +36,12 @@
     <ClCompile Include="FileParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\BasicComponents.h">
@@ -50,13 +56,22 @@
     <ClInclude Include="headers\CompositeComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="headers\FileHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\FileParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\FileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="headers\LogicComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\Probe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileParser.h">
+    <ClInclude Include="headers\NodeData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

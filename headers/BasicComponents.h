@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LogicComponent.h"
+#include <string>
 
 class BasicComponent : public LogicComponent {
 protected:
@@ -17,40 +18,48 @@ public:
 
     // getOutput implemented here to return the output of the basic component
     bool getOutput() const override { return output; }
+
+    std::string getType() const override { return "none"; }
 };
 
 // AND gate
 class AND : public BasicComponent {
 public:
     void computeOutput() override;
+    std::string getType() const override;
 };
 
 // OR gate
 class OR : public BasicComponent {
 public:
     void computeOutput() override;
+    std::string getType() const override;
 };
 
 // NOT gate, using input1 for its single input
 class NOT : public BasicComponent {
 public:
     void computeOutput() override;
+    std::string getType() const override;
 };
 
 // NAND gate
 class NAND : public BasicComponent {
 public:
     void computeOutput() override;
+    std::string getType() const override;
 };
 
 // NOR gate
 class NOR : public BasicComponent {
 public:
     void computeOutput() override;
+    std::string getType() const override;
 };
 
 // XOR gate
 class XOR : public BasicComponent {
 public:
     void computeOutput() override;
+    std::string getType() const override;
 };

@@ -7,18 +7,15 @@
 #include "headers/FileParser.h"
 
 
-std::vector<nodeData> FileParser::parse(std::string fileName)
+
+std::vector<NodeData> FileParser::parse(std::stringstream & fileStr)
 {
-	std::ifstream file(fileName);
-	std::vector<nodeData> nodes;
-
-	if (!file.is_open())
-		std::cout << "Failed to open file" << std::endl;
-
-	std::string line;
+	std::vector<NodeData> nodes;
 	bool parsingNodes = true; // parsing edges when false
 
-	while (std::getline(file, line)) {
+	std::string line;
+
+	while (std::getline(fileStr, line)) {
 		//std::cout << "reading line: " << line << std::endl;
 		if (line.find("# Description of all the edges") != std::string::npos) {
 			parsingNodes = false;
@@ -36,11 +33,11 @@ std::vector<nodeData> FileParser::parse(std::string fileName)
 			size_t typeStartPos = line.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ",colonPos +1);
 
 			size_t semiColonPos = line.find(';', typeStartPos + 1);
-			std::string typeStr = line.substr(typeStartPos, semiColonPos - colonPos);
+			std::string typeStr = line.substr(typeStartPos, semiColonPos - typeStartPos);
 
 			//std::cout << "name: " << name << "           Type :" << typeStr << std::endl;
 
-			nodes.push_back(nodeData{ name, typeStr, std::vector<std::string>() });
+			nodes.push_back(NodeData{ name, typeStr, std::vector<std::string>() });
 		}
 		else { // parsing edges
 
@@ -65,7 +62,7 @@ std::vector<nodeData> FileParser::parse(std::string fileName)
 
 			if (edgesVec == nullptr) {
 				std::cout << "Error setting vector\n";
-				return std::vector<nodeData>();
+				return std::vector<NodeData>();
 			}
 
 			while (true) {
