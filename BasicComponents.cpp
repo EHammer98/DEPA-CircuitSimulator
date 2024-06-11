@@ -92,6 +92,12 @@ void Probe::observe(BasicComponent* component) {
     observedComponent = component;
 }
 
+void Probe::computeOutput() {
+    if (observedComponent) {
+        output = observedComponent->getOutput();
+    }
+}
+
 std::string Probe::getType() const
 {
     return "Probe";

@@ -29,6 +29,5 @@ LogicComponent* ComponentFactory::createComponent(const std::string& type)
         return new CompositeComponent();
     }
     // Add additional types as necessary
-
     return nullptr;  // If the type is unrecognized, return nullptr
 }
