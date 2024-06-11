@@ -22,6 +22,17 @@ static inline std::string trim(const std::string& s) {
 Circuit::Circuit(const std::vector<NodeData>& circuitData) {
     _circuitData = circuitData;
 
+    for (auto node : circuitData)
+    {
+        std::cout << "Name: " << node.name << " \tType: " << node.type << "  \t" << node.edges.size() << " Edges: ";
+
+        for (std::string edge : node.edges)
+        {
+            std::cout << edge << " ";
+        }
+        std::cout << '\n';
+    }
+
     ComponentFactory factory;
 
     std::cout << "Creating components..." << std::endl;

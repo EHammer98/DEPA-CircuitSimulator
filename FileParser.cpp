@@ -65,6 +65,8 @@ std::vector<NodeData> FileParser::parse(std::stringstream & fileStr)
 				return std::vector<NodeData>();
 			}
 
+			lastPos = line.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ", lastPos + 1);
+
 			while (true) {
 
 				size_t seperatorPos = line.find_first_of(",;", lastPos + 1);
