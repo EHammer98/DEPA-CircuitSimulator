@@ -1,21 +1,20 @@
-#pragma once
+#ifndef CIRCUIT_H
+#define CIRCUIT_H
 
-// Circuit.h
 #include <vector>
+#include <unordered_map>
 #include "LogicComponent.h"
-#include "headers/NodeData.h"
+#include "FileParser.h"
 
 class Circuit {
-private:
-    std::vector<LogicComponent*> components;
-
 public:
-
-    Circuit(std::vector<NodeData>);
-
-    // Add a component to the circuit
-    void addComponent(LogicComponent* component);
-
-    // Compute the output for all components in the circuit
+    Circuit(const std::vector<NodeData>& circuitData);
     void compute();
+    void addComponent(const std::string& name, LogicComponent* component);
+    void connectComponents(const std::vector<NodeData>& circuitData);
+
+private:
+    std::unordered_map<std::string, LogicComponent*> components;
 };
+
+#endif // CIRCUIT_H

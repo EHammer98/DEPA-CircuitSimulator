@@ -63,3 +63,23 @@ public:
     void computeOutput() override;
     std::string getType() const override;
 };
+
+class InputHigh : public BasicComponent {
+public:
+    void computeOutput() override;
+    std::string getType() const override;
+};
+
+class InputLow : public BasicComponent {
+public:
+    void computeOutput() override;
+    std::string getType() const override;
+};
+
+class Probe : public BasicComponent {
+public:
+    void observe(BasicComponent* component);
+    void computeOutput() override;
+    std::string getType() const override;
+private:
+    BasicComponent* observedComponent;

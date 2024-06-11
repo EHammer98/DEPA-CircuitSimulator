@@ -58,3 +58,30 @@ std::string XOR::getType() const
 {
     return "XOR";
 }
+
+void InputHigh::computeOutput() {
+    output = true;
+}
+
+std::string InputHigh::getType() const
+{
+    return "InputHigh";
+}
+
+void InputLow::computeOutput() {
+    output = false;
+}
+
+std::string InputLow::getType() const
+{
+    return "InputLow";
+}
+
+void Probe::observe(BasicComponent* component) {
+    observedComponent = component;
+}
+
+std::string Probe::getType() const
+{
+    return component;
+}

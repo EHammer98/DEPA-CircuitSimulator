@@ -19,8 +19,13 @@ LogicComponent* ComponentFactory::createComponent(const std::string& type)
         return new NOR();
     } else if (type == "XOR") {
         return new XOR();
-    } else if (type == "Composite") {
-      //  std::cout << "Type = Composite" << std::endl;
+    } else if (type == "INPUT_HIGH") {
+        return new InputHigh();
+    } else if (type == "INPUT_LOW") {
+        return new InputLow();
+    } else if (type == "PROBE") {
+        return new Probe();
+    } else if (type == "COMPOSITE") {
         return new CompositeComponent();
     }
     // Add additional types as necessary
