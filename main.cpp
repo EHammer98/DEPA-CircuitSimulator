@@ -19,12 +19,12 @@ int main(int argc, char* argv[]) {
     circuit.compute();
 
     // Print results for probes
-    for (const auto& compPair : circuit.components) {
-        Probe* probe = dynamic_cast<Probe*>(compPair.second);
-        if (probe) {
-            std::cout << "Probe '" << compPair.first << "' output: " << probe->getOutput() << std::endl;
-        }
-    }
+    //for (const auto& compPair : circuit.components) {
+    //    Probe* probe = dynamic_cast<Probe*>(compPair.second);
+    //    if (probe) {
+    //        std::cout << "Probe '" << compPair.first << "' output: " << probe->getOutput() << std::endl;
+    //    }
+    //}
 
     return 0;
 }

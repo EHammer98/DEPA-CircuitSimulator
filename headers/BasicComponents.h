@@ -4,6 +4,7 @@
 #include <string>
 
 class BasicComponent : public LogicComponent {
+    friend class Circuit;
 protected:
     bool input1;
     bool input2;
@@ -18,6 +19,9 @@ public:
 
     // getOutput implemented here to return the output of the basic component
     bool getOutput() const override { return output; }
+
+    void setInput1(bool state);
+    void setInput2(bool state);
 
     std::string getType() const override { return "none"; }
 };
@@ -83,3 +87,4 @@ public:
     std::string getType() const override;
 private:
     BasicComponent* observedComponent;
+};

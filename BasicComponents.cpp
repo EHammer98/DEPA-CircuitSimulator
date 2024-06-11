@@ -1,6 +1,17 @@
 #include "headers/BasicComponents.h"
 #include <string>
 
+
+void BasicComponent::setInput1(bool state)
+{
+
+}
+
+void BasicComponent::setInput2(bool state)
+{
+
+}
+
 // AND gate compute function
 void AND::computeOutput() {
     output = input1 && input2;
@@ -83,5 +94,5 @@ void Probe::observe(BasicComponent* component) {
 
 std::string Probe::getType() const
 {
-    return component;
+    return "Probe";
 }

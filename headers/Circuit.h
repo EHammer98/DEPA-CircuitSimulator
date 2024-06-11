@@ -11,10 +11,12 @@ public:
     Circuit(const std::vector<NodeData>& circuitData);
     void compute();
     void addComponent(const std::string& name, LogicComponent* component);
-    void connectComponents(const std::vector<NodeData>& circuitData);
+    void connectComponents();
 
 private:
     std::unordered_map<std::string, LogicComponent*> components;
+
+    std::vector<NodeData> _circuitData;
 };
 
 #endif // CIRCUIT_H
