@@ -30,9 +30,6 @@
     <ClCompile Include="CompositeComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Probe.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -66,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\LogicComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Probe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\NodeData.h">

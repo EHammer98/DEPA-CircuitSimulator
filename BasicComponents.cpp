@@ -4,12 +4,12 @@
 
 void BasicComponent::setInput1(bool state)
 {
-
+    input1 = state;
 }
 
 void BasicComponent::setInput2(bool state)
 {
-
+    input2 = state;
 }
 
 // AND gate compute function
@@ -93,7 +93,8 @@ void Probe::observe(BasicComponent* component) {
 }
 
 void Probe::computeOutput() {
-    if (observedComponent) {
+
+    if (observedComponent != nullptr) {
         output = observedComponent->getOutput();
     }
 }

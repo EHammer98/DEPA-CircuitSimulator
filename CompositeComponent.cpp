@@ -22,7 +22,7 @@ void CompositeComponent::computeOutput() {
     }
 }
 
-    bool CompositeComponent::getOutput() const {
+    bool CompositeComponent::getOutput() {
         return false;
     }
 

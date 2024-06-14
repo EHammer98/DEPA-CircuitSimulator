@@ -21,7 +21,7 @@ public:
     void computeOutput() override;
 
     // Get the output of the composite component
-    bool getOutput() const override;
+    bool getOutput() override;
 
     std::string getType() const;
 };

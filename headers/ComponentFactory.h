@@ -2,8 +2,9 @@
 
 #include <string>
 #include "LogicComponent.h"
+#include "headers/nodeData.h"
 
 class ComponentFactory {
 public:
-    LogicComponent* createComponent(const std::string& type);
+    LogicComponent* createComponent(const NodeData&);
 };

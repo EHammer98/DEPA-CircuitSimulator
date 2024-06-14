@@ -135,7 +135,6 @@
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Probe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\BasicComponents.h" />
@@ -146,7 +145,6 @@
     <ClInclude Include="headers\FileParser.h" />
     <ClInclude Include="headers\FileReader.h" />
     <ClInclude Include="headers\LogicComponent.h" />
-    <ClInclude Include="headers\Probe.h" />
     <ClInclude Include="headers\NodeData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

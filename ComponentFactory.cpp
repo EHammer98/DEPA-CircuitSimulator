@@ -5,27 +5,27 @@
 #include "headers/CompositeComponent.h"
 #include <iostream>
 
-LogicComponent* ComponentFactory::createComponent(const std::string& type)
+LogicComponent* ComponentFactory::createComponent(const NodeData& nodeData)
 {
-    if (type == "AND") {
-        return new AND();
-    } else if (type == "OR") {
-        return new OR();
-    } else if (type == "NOT") {
-        return new NOT();
-    } else if (type == "NAND") {
-        return new NAND();
-    } else if (type == "NOR") {
-        return new NOR();
-    } else if (type == "XOR") {
-        return new XOR();
-    } else if (type == "INPUT_HIGH") {
-        return new InputHigh();
-    } else if (type == "INPUT_LOW") {
-        return new InputLow();
-    } else if (type == "PROBE") {
-        return new Probe();
-    } else if (type == "COMPOSITE") {
+    if (nodeData.type == "AND") {
+        return new AND(nodeData.name);
+    } else if (nodeData.type == "OR") {
+        return new OR(nodeData.name);
+    } else if (nodeData.type == "NOT") {
+        return new NOT(nodeData.name);
+    } else if (nodeData.type == "NAND") {
+        return new NAND(nodeData.name);
+    } else if (nodeData.type == "NOR") {
+        return new NOR(nodeData.name);
+    } else if (nodeData.type == "XOR") {
+        return new XOR(nodeData.name);
+    } else if (nodeData.type == "INPUT_HIGH") {
+        return new InputHigh(nodeData.name);
+    } else if (nodeData.type == "INPUT_LOW") {
+        return new InputLow(nodeData.name);
+    } else if (nodeData.type == "PROBE") {
+        return new Probe(nodeData.name);
+    } else if (nodeData.type == "COMPOSITE") {
         return new CompositeComponent();
     }
     // Add additional types as necessary
