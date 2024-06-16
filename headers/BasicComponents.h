@@ -11,11 +11,12 @@ protected:
 	bool input1;
 	bool input2;
 	bool output;
+	bool outputComputed;
 	std::string name;
 
 public:
 	// Constructor for binary gates
-	BasicComponent(std::string nameIn) : name(nameIn), input1(false), input2(false), output(false) {}
+	BasicComponent(std::string nameIn) : name(nameIn), input1(false), input2(false), output(false), outputComputed(false), inputComponent1(nullptr), inputComponent2(nullptr){}
 
 
 
@@ -39,23 +40,20 @@ public:
 		return true;
 	}
 
-	void readInputs() 
+	void readInputs()
 	{
 		if (inputComponent1) input1 = inputComponent1->getOutput();
 		if (inputComponent2) input2 = inputComponent2->getOutput();
 	}
 
-	bool getOutput() override 
+	bool getOutput() override
 	{
 		readInputs();
 
-		computeOutput();
+		if (!outputComputed) computeOutput();
 
 		return output;
 	}
-
-	void setInput1(bool state);
-	void setInput2(bool state);
 
 	void setinputComponent1(BasicComponent* inputComp) { inputComponent1 = inputComp; }
 	void setinputComponent2(BasicComponent* inputComp) { inputComponent2 = inputComp; }
@@ -128,7 +126,7 @@ public:
 
 class Probe : public BasicComponent {
 public:
-	Probe(std::string nameIn) : observedComponent(nullptr), BasicComponent(nameIn){}
+	Probe(std::string nameIn) : observedComponent(nullptr), BasicComponent(nameIn) {}
 	void observe(BasicComponent* component);
 	void computeOutput() override;
 	std::string getType() const override;

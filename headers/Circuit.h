@@ -12,10 +12,11 @@ public:
     void compute();
     void addComponent(const std::string& name, LogicComponent* component);
     void connectComponents();
-    std::unordered_map<std::string, LogicComponent*> components;
+    void printProbeOutputs();
 
 private:
-    
+
+    std::unordered_map<std::string, LogicComponent*> components;
 
     std::vector<NodeData> _circuitData;
 };

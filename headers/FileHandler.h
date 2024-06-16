@@ -5,6 +5,25 @@
 class FileHandler
 {
 public:
-	static Circuit readAndParse(std::string fileName);
+
+	static FileHandler& get_instance() {
+
+		if (instance == nullptr) instance = new FileHandler();
+
+		return *instance;
+	}
+
+	Circuit readAndParse(std::string fileName);
+
+
+	FileHandler(const FileHandler&) = delete;
+	FileHandler& operator = (const FileHandler&) = delete;
+
+private:
+
+	FileHandler() = default;
+	~FileHandler() = default;
+
+	static FileHandler* instance;
 };
 

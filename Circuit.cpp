@@ -58,12 +58,6 @@ void Circuit::connectComponents()
 			}
 		}
 
-
-
-
-
-		//	thisComp->setinputComponent1();
-
 		std::cout << node.first << " : ";
 
 		// add pointer to this node in each child node
@@ -109,7 +103,18 @@ void Circuit::compute()
 			bool output = node.second->getOutput();
 
 
-			std::cout << "name: " << node.first << " type: " << basicToComponent->getType() << " output: " << output << std::endl;
+			//std::cout << "name: " << node.first << " type: " << basicToComponent->getType() << " output: " << output << std::endl;
+		}
+	}
+}
+
+void Circuit::printProbeOutputs()
+{
+	// Print results for probes
+	for (const auto& compPair : components) {
+		Probe* probe = dynamic_cast<Probe*>(compPair.second);
+		if (probe) {
+			std::cout << "Probe '" << compPair.first << "' output: " << probe->getOutput() << std::endl;
 		}
 	}
 }

@@ -6,6 +6,8 @@
 #include "headers/nodeData.h"
 
 
+FileHandler* FileHandler::instance = nullptr;
+
 Circuit FileHandler::readAndParse(std::string fileName)
 {
 	std::stringstream fileStr = FileReader::readFile(fileName);

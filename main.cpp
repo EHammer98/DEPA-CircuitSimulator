@@ -11,26 +11,24 @@
 #include <map>
 #include <algorithm>
 
-int main(int argc, char* argv[]) 
+int main(int argc, char* argv[])
 {
-  //  std::string input_filename = "circuits/circuit1.txt";
+	//  std::string input_filename = "circuits/circuit1.txt";
 
-   std::string input_filename = "circuits/fulladder_A1_B1_C1.txt"; // checked all input combinations for full adder
-
-
-    Circuit circuit = FileHandler::readAndParse(input_filename);
-
-    circuit.compute();
+     std::string input_filename = "circuits/fulladder_A1_B1_C1.txt"; // checked all input combinations for full adder
 
 
-    /*
-    // Print results for probes
-    for (const auto& compPair : circuit.components) {
-        Probe* probe = dynamic_cast<Probe*>(compPair.second);
-        if (probe) {
-            std::cout << "Probe '" << compPair.first << "' output: " << probe->getOutput() << std::endl;
-        }
-    }
-    */
-    return 0;
+	//std::string input_filename = "circuits/4-bit_test_circuit.txt";
+
+
+	FileHandler& fileHandler = FileHandler::get_instance();
+
+	Circuit circuit = fileHandler.readAndParse(input_filename);
+
+	circuit.compute();
+
+	circuit.printProbeOutputs();
+	
+	
+	return 0;
 }
