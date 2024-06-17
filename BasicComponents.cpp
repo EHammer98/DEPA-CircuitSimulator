@@ -5,7 +5,6 @@
 // AND gate compute function
 void AND::computeOutput() {
     output = input1 && input2;
-    outputComputed = true;
 }
 
 std::string AND::getType() const
@@ -16,7 +15,6 @@ std::string AND::getType() const
 // OR gate compute function
 void OR::computeOutput() {
     output = input1 || input2;
-    outputComputed = true;
 }
 
 std::string OR::getType() const
@@ -27,7 +25,6 @@ std::string OR::getType() const
 // NOT gate compute function
 void NOT::computeOutput() {
     output = !input1;  // Using input1 for NOT gate
-    outputComputed = true;
 }
 std::string NOT::getType() const
 {
@@ -37,7 +34,6 @@ std::string NOT::getType() const
 // NAND gate compute function
 void NAND::computeOutput() {
     output = !(input1 && input2);
-    outputComputed = true;
 }
 std::string NAND::getType() const
 {
@@ -47,7 +43,6 @@ std::string NAND::getType() const
 // NOR gate compute function
 void NOR::computeOutput() {
     output = !(input1 || input2);
-    outputComputed = true;
 }
 
 std::string NOR::getType() const
@@ -58,7 +53,6 @@ std::string NOR::getType() const
 // XOR gate compute function
 void XOR::computeOutput() {
     output = input1 ^ input2;
-    outputComputed = true;
 }
 
 std::string XOR::getType() const
@@ -68,7 +62,6 @@ std::string XOR::getType() const
 
 void InputHigh::computeOutput() {
     output = true;
-    outputComputed = true;
 }
 
 std::string InputHigh::getType() const
@@ -78,7 +71,6 @@ std::string InputHigh::getType() const
 
 void InputLow::computeOutput() {
     output = false;
-    outputComputed = true;
 }
 
 std::string InputLow::getType() const
@@ -95,7 +87,6 @@ void Probe::computeOutput() {
     if (observedComponent != nullptr) {
         output = observedComponent->getOutput();
     }
-    outputComputed = true;
 }
 
 std::string Probe::getType() const

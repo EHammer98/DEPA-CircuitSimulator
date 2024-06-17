@@ -2,6 +2,7 @@
 
 #include "LogicComponent.h"
 #include <string>
+#include <iostream>
 
 class BasicComponent : public LogicComponent {
 	friend class Circuit;
@@ -11,25 +12,33 @@ protected:
 	bool input1;
 	bool input2;
 	bool output;
-	bool outputComputed;
+	unsigned int numOutputRequests;
 	std::string name;
+
+
 
 public:
 	// Constructor for binary gates
-	BasicComponent(std::string nameIn) : name(nameIn), input1(false), input2(false), output(false), outputComputed(false), inputComponent1(nullptr), inputComponent2(nullptr){}
+	BasicComponent(std::string nameIn) : name(nameIn), input1(false), input2(false), output(false), numOutputRequests(0), inputComponent1(nullptr), inputComponent2(nullptr) {}
 
+	bool getOutput() override
+	{
+		numOutputRequests++;
 
-
-	// Abstract function computeOutput from LogicComponent will be overridden in derived
-	virtual void computeOutput() = 0;
-
+		if (numOutputRequests == 1) // first request
+		{
+			readInputs();
+			computeOutput();
+		}
+		return output;
+	}
 
 	std::string getName() {
 		return name;
 	}
 
-	// getOutput implemented here to return the output of the basic component
-
+private:
+	virtual void computeOutput() = 0;
 
 	bool addInputComponent(BasicComponent* inputComp)
 	{
@@ -46,20 +55,13 @@ public:
 		if (inputComponent2) input2 = inputComponent2->getOutput();
 	}
 
-	bool getOutput() override
-	{
-		readInputs();
 
-		if (!outputComputed) computeOutput();
-
-		return output;
-	}
 
 	void setinputComponent1(BasicComponent* inputComp) { inputComponent1 = inputComp; }
 	void setinputComponent2(BasicComponent* inputComp) { inputComponent2 = inputComp; }
 
 
-	std::string getType() const override { return "none"; }
+	std::string getType() const override { return "none"; } // default type if not overridden
 };
 
 // AND gate
