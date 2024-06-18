@@ -136,6 +136,11 @@
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Nand.cpp" />
+    <ClCompile Include="Nor.cpp" />
+    <ClCompile Include="Not.cpp" />
+    <ClCompile Include="Or.cpp" />
+    <ClCompile Include="Xor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\And.h" />
@@ -145,7 +150,12 @@
     <ClInclude Include="headers\FileHandler.h" />
     <ClInclude Include="headers\FileParser.h" />
     <ClInclude Include="headers\FileReader.h" />
+    <ClInclude Include="headers\Nand.h" />
     <ClInclude Include="headers\NodeData.h" />
+    <ClInclude Include="headers\Nor.h" />
+    <ClInclude Include="headers\Not.h" />
+    <ClInclude Include="headers\Or.h" />
+    <ClInclude Include="headers\Xor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
