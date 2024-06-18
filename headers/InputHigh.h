@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "BasicComponents.h"
 
 class INPUT_HIGH : public BasicComponent

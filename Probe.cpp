@@ -4,7 +4,7 @@
 
 PROBE PROBE::m_cInstance("PROBE");
 
-void Probe::observe(BasicComponent* component) {
+void PROBE::observe(BasicComponent* component) {
     observedComponent = component;
 }
 
@@ -17,7 +17,7 @@ void PROBE::computeOutput() {
 
 std::string PROBE::getType() const
 {
-    return "AND";
+    return "PROBE";
 }
 
 BasicComponent* PROBE::clone() const

@@ -1,6 +1,7 @@
 #include "headers/Circuit.h"
 #include "headers/ComponentFactory.h"
 #include "headers/BasicComponents.h"
+#include "headers/Probe.h" 
 #include <iostream>
 #include <algorithm>
 #include <cctype>
@@ -28,6 +29,7 @@ Circuit::Circuit(const std::vector<NodeData>& circuitData) {
 			std::cerr << "Failed to create component of type: " << node.type << " for node: " << node.name << std::endl;
 		}
 		else {
+			component->setName(node.name);
 			std::cout << "Created component: " << node.name << " of type: " << node.type << std::endl;
 		}
 
@@ -35,7 +37,7 @@ Circuit::Circuit(const std::vector<NodeData>& circuitData) {
 		addComponent(node.name, component);
 	}
 
-	//connectComponents();
+	connectComponents();
 	
 }
 
@@ -71,14 +73,14 @@ void Circuit::connectComponents()
 			BasicComponent* outputComponent = dynamic_cast<BasicComponent*>(components[edge]);
 
 			if (outputComponent) {
-				if (outputComponent->getType() == "Probe") {
-					//auto probeComp = dynamic_cast<Probe*>(outputComponent);
-					//probeComp->observe(thisComp);
+				if (outputComponent->getType() == "PROBE") {
+					auto probeComp = dynamic_cast<PROBE*>(outputComponent);
+					probeComp->observe(thisComp);
 				}
 				else {
 
 					if (outputComponent->addInputComponent(thisComp)) {
-						//std::cout << " added input component\n";
+					//	std::cout << " added input component\n";
 					}
 				}
 			}
@@ -96,8 +98,8 @@ void Circuit::compute()
 
 		BasicComponent* basicToComponent = dynamic_cast<BasicComponent*>(node.second);
 
-		/*
-		auto probeComp = dynamic_cast<Probe*>(basicToComponent);
+		
+		auto probeComp = dynamic_cast<PROBE*>(basicToComponent);
 
 		if (probeComp) // only start calulating from probe components
 		{
@@ -107,21 +109,23 @@ void Circuit::compute()
 
 			//std::cout << "name: " << node.first << " type: " << basicToComponent->getType() << " output: " << output << std::endl;
 		}
-		*/
+		
 	}
 }
 
 void Circuit::printProbeOutputs()
 {
 	// Print results for probes
-	/*
+
+	std::cout << "\nProbe outputs: \n";
+	
 	for (const auto& compPair : components) {
-		Probe* probe = dynamic_cast<Probe*>(compPair.second);
+		PROBE* probe = dynamic_cast<PROBE*>(compPair.second);
 		if (probe) {
 			std::cout << "Probe '" << compPair.first << "' output: " << probe->getOutput() << std::endl;
 		}
 	}
-	*/
+	
 }
 
 

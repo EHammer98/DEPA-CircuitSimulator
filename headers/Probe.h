@@ -11,6 +11,8 @@ public:
 	void computeOutput() override;
 	std::string getType() const override;
 
+	void observe(BasicComponent*);
+
 	BasicComponent* clone() const override;
 
 private:

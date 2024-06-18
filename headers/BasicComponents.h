@@ -24,6 +24,11 @@ public:
 		Factory::ComponentFactory<std::string, BasicComponent>::assign(ID, this);
 	}
 
+	void setName(std::string nameIn)
+	{
+		name = nameIn;
+	}
+
 	bool getOutput()
 	{
 		numOutputRequests++;
@@ -60,80 +65,5 @@ private:
 		if (inputComponent2) input2 = inputComponent2->getOutput();
 	}
 
-
-
-	void setinputComponent1(BasicComponent* inputComp) { inputComponent1 = inputComp; }
-	void setinputComponent2(BasicComponent* inputComp) { inputComponent2 = inputComp; }
-
-
 	virtual std::string getType() const { return "none"; } // default type if not overridden
 };
-
-/*
-// OR gate
-class OR : public BasicComponent {
-public:
-	OR(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-// NOT gate, using input1 for its single input
-class NOT : public BasicComponent {
-public:
-	NOT(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-// NAND gate
-class NAND : public BasicComponent {
-public:
-	NAND(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-// NOR gate
-class NOR : public BasicComponent {
-public:
-	NOR(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-// XOR gate
-class XOR : public BasicComponent {
-public:
-	XOR(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-class InputHigh : public BasicComponent {
-public:
-	InputHigh(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-class InputLow : public BasicComponent {
-public:
-	InputLow(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
-
- 
-class Probe : public BasicComponent {
-public:
-	Probe(int ID, std::string nameIn) : observedComponent(nullptr), BasicComponent(ID, nameIn) {}
-	void observe(BasicComponent* component);
-	void computeOutput() override;
-	std::string getType() const override;
-private:
-	BasicComponent* observedComponent;
-};
-
-*/

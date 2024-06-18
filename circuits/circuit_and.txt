@@ -7,7 +7,7 @@
 # Description of all the nodes
 #
 A:	    INPUT_HIGH;
-B:	    INPUT_LOW;
+B:	    INPUT_HIGH;
 S:	    PROBE;
 NODE1:	AND;
 
