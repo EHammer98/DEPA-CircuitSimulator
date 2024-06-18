@@ -18,12 +18,12 @@ Circuit::Circuit(const std::vector<NodeData>& circuitData) {
 		}
 		std::cout << '\n';
 	}
-
-	ComponentFactory factory;
+	
+	//ComponentFactory factory;
 
 	std::cout << "\nCreating components..." << std::endl;
 	for (const auto& node : circuitData) {
-		LogicComponent* component = factory.createComponent(node);
+		BasicComponent* component = Factory::ComponentFactory<std::string, BasicComponent>::create(node.type);
 		if (component == nullptr) {
 			std::cerr << "Failed to create component of type: " << node.type << " for node: " << node.name << std::endl;
 		}
@@ -35,7 +35,8 @@ Circuit::Circuit(const std::vector<NodeData>& circuitData) {
 		addComponent(node.name, component);
 	}
 
-	connectComponents();
+	//connectComponents();
+	
 }
 
 void Circuit::connectComponents()
@@ -71,8 +72,8 @@ void Circuit::connectComponents()
 
 			if (outputComponent) {
 				if (outputComponent->getType() == "Probe") {
-					auto probeComp = dynamic_cast<Probe*>(outputComponent);
-					probeComp->observe(thisComp);
+					//auto probeComp = dynamic_cast<Probe*>(outputComponent);
+					//probeComp->observe(thisComp);
 				}
 				else {
 
@@ -95,6 +96,7 @@ void Circuit::compute()
 
 		BasicComponent* basicToComponent = dynamic_cast<BasicComponent*>(node.second);
 
+		/*
 		auto probeComp = dynamic_cast<Probe*>(basicToComponent);
 
 		if (probeComp) // only start calulating from probe components
@@ -105,22 +107,25 @@ void Circuit::compute()
 
 			//std::cout << "name: " << node.first << " type: " << basicToComponent->getType() << " output: " << output << std::endl;
 		}
+		*/
 	}
 }
 
 void Circuit::printProbeOutputs()
 {
 	// Print results for probes
+	/*
 	for (const auto& compPair : components) {
 		Probe* probe = dynamic_cast<Probe*>(compPair.second);
 		if (probe) {
 			std::cout << "Probe '" << compPair.first << "' output: " << probe->getOutput() << std::endl;
 		}
 	}
+	*/
 }
 
 
 
-void Circuit::addComponent(const std::string& name, LogicComponent* component) {
+void Circuit::addComponent(const std::string& name, BasicComponent* component) {
 	components[name] = component;
 }

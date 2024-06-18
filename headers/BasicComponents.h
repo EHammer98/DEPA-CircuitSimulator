@@ -1,10 +1,10 @@
 #pragma once
 
-#include "LogicComponent.h"
 #include <string>
 #include <iostream>
+#include "ComponentFactory.h"
 
-class BasicComponent : public LogicComponent {
+class BasicComponent {
 	friend class Circuit;
 protected:
 	BasicComponent* inputComponent1;
@@ -16,12 +16,15 @@ protected:
 	std::string name;
 
 
-
 public:
 	// Constructor for binary gates
-	BasicComponent(std::string nameIn) : name(nameIn), input1(false), input2(false), output(false), numOutputRequests(0), inputComponent1(nullptr), inputComponent2(nullptr) {}
+	BasicComponent() {}; // default constructor
+	BasicComponent(std::string ID, std::string nameIn) : name(nameIn), input1(false), input2(false), output(false), numOutputRequests(0), inputComponent1(nullptr), inputComponent2(nullptr)
+	{
+		Factory::ComponentFactory<std::string, BasicComponent>::assign(ID, this);
+	}
 
-	bool getOutput() override
+	bool getOutput()
 	{
 		numOutputRequests++;
 
@@ -36,6 +39,8 @@ public:
 	std::string getName() {
 		return name;
 	}
+
+	virtual BasicComponent* clone() const = 0;
 
 private:
 	virtual void computeOutput() = 0;
@@ -61,17 +66,10 @@ private:
 	void setinputComponent2(BasicComponent* inputComp) { inputComponent2 = inputComp; }
 
 
-	std::string getType() const override { return "none"; } // default type if not overridden
+	virtual std::string getType() const { return "none"; } // default type if not overridden
 };
 
-// AND gate
-class AND : public BasicComponent {
-public:
-	AND(std::string nameIn) : BasicComponent(nameIn) {}
-	void computeOutput() override;
-	std::string getType() const override;
-};
-
+/*
 // OR gate
 class OR : public BasicComponent {
 public:
@@ -126,12 +124,16 @@ public:
 	std::string getType() const override;
 };
 
+
+ 
 class Probe : public BasicComponent {
 public:
-	Probe(std::string nameIn) : observedComponent(nullptr), BasicComponent(nameIn) {}
+	Probe(int ID, std::string nameIn) : observedComponent(nullptr), BasicComponent(ID, nameIn) {}
 	void observe(BasicComponent* component);
 	void computeOutput() override;
 	std::string getType() const override;
 private:
 	BasicComponent* observedComponent;
 };
+
+*/

@@ -1,17 +1,6 @@
 #include "headers/BasicComponents.h"
 #include <string>
-
-
-// AND gate compute function
-void AND::computeOutput() {
-    output = input1 && input2;
-}
-
-std::string AND::getType() const
-{
-    return "AND";
-}
-
+/*
 // OR gate compute function
 void OR::computeOutput() {
     output = input1 || input2;
@@ -93,3 +82,4 @@ std::string Probe::getType() const
 {
     return "Probe";
 }
+*/

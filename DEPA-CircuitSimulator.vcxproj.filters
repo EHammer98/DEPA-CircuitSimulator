@@ -24,12 +24,6 @@
     <ClCompile Include="Circuit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CompositeComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +31,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="And.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,9 +47,6 @@
     <ClInclude Include="headers\ComponentFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\CompositeComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\FileHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -62,10 +56,10 @@
     <ClInclude Include="headers\FileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\LogicComponent.h">
+    <ClInclude Include="headers\NodeData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\NodeData.h">
+    <ClInclude Include="headers\And.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

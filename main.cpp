@@ -1,7 +1,5 @@
 #include "headers/Circuit.h"
 #include "headers/ComponentFactory.h"
-#include "headers/CompositeComponent.h"
-#include "headers/LogicComponent.h"
 #include "headers/BasicComponents.h"
 #include "headers/FileHandler.h"
 #include <iostream>
@@ -13,9 +11,9 @@
 
 int main(int argc, char* argv[])
 {
-//	std::string input_filename = "circuits/circuit2.txt";
+	//std::string input_filename = "circuits/circuit4.txt";
 
-	std::string input_filename = "circuits/fulladder_A0_B0_C0.txt"; // checked all input combinations for full adder
+	std::string input_filename = "circuits/fulladder_A1_B1_C1.txt"; // checked all input combinations for full adder
 
 
 //	std::string input_filename = "circuits/4-bit_test_circuit.txt";
