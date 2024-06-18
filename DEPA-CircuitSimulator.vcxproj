@@ -135,6 +135,8 @@
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="InputHigh.cpp" />
+    <ClCompile Include="InputLow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nand.cpp" />
     <ClCompile Include="Nor.cpp" />
