@@ -135,7 +135,10 @@
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="InputHigh.cpp" />
+    <ClCompile Include="InputLow.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Probe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\And.h" />
@@ -145,7 +148,10 @@
     <ClInclude Include="headers\FileHandler.h" />
     <ClInclude Include="headers\FileParser.h" />
     <ClInclude Include="headers\FileReader.h" />
+    <ClInclude Include="headers\InputHigh.h" />
+    <ClInclude Include="headers\InputLow.h" />
     <ClInclude Include="headers\NodeData.h" />
+    <ClInclude Include="headers\Probe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
